@@ -95,7 +95,7 @@ async function cleanupAndWhitelist(interaction, robloxId, robloxUsername) {
     }
 
     // --- Logging ---
-    const playerInfo = await noblox.getPlayerInfo(robloxId);
+    const profile = await noblox.getUserInfo({userId: robloxId});
     const embed = new EmbedBuilder()
       .setAuthor({
         name: `Envy Watcher | ${existingWhitelist ? 'Whitelist Updated' : 'New Whitelisted User'} -> ${envyId}`,
@@ -105,7 +105,7 @@ async function cleanupAndWhitelist(interaction, robloxId, robloxUsername) {
       .setColor("#7f00d4")
       .addFields(
         { name: "> **Discord Info**:", value: `**Discord Name**: \`${interaction.member.displayName}\` aka \`${interaction.user.tag}\`\n**Discord ID**: \`${interaction.user.id}\`\n**Joined Envy At**: <t:${Math.floor(interaction.member.joinedTimestamp / 1000)}:f>\n**Joined Discord At**: <t:${Math.floor(interaction.user.createdTimestamp / 1000)}:f>`, inline: true },
-        { name: "> **Roblox Info**:", value: `**Roblox Username**: \`${robloxUsername}\`\n**Roblox ID**: \`${robloxId.toString()}\`\n**Display name**: ${playerInfo.displayName}\n**Age**: ${playerInfo.age}\n**Account Creation Date**: <t:${Math.floor(playerInfo.joinDate.getTime() / 1000)}:f>`, inline: true }
+        { name: "> **Roblox Info**:", value: `**Roblox Username**: \`${robloxUsername}\`\n**Roblox ID**: \`${robloxId.toString()}\`\n**Display name**: \`${profile.displayName}\`\n**Account Creation Date**: <t:${Math.floor(profile.created.getTime() / 1000)}:f>`, inline: true }
       )
       .setFooter({
         text: "Envy -> Whitelisted",
