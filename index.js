@@ -16,6 +16,18 @@ const {
   ENVY_SERVER_ID
 } = require("./src/config");
 
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot is alive and vibing 😎');
+});
+
+app.listen(PORT, () => {
+  console.log(`Web server running at http://localhost:${PORT}`);
+});
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
