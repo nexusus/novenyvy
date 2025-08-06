@@ -108,7 +108,7 @@ async function init() {
     client.user.setActivity({
         name: 'Envy Serverside',
         type: ActivityType.Streaming,
-        url: 'https://discord.gg/QPZFsAmc' // Replace with your Twitch or YouTube stream URL
+        url: 'https://twitch.tv/Roblox' 
     });
   });
 
