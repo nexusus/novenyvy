@@ -104,6 +104,11 @@ async function init() {
 
   client.once("ready", () => {
     console.log(`-> Logged in as ${client.user.tag}`);
+    client.user.setActivity({
+        name: 'Envy Serverside',
+        type: ActivityType.Streaming,
+        url: 'https://discord.gg/QPZFsAmc' // Replace with your Twitch or YouTube stream URL
+    });
   });
 
   client.on("interactionCreate", async (interaction) => {
