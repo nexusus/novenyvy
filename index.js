@@ -6,6 +6,7 @@ const {
   Collection,
   REST,
   Routes,
+  ActivityType,
 } = require("discord.js");
 const noblox = require("noblox.js");
 const {
